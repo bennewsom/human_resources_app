@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  licence_provider: MyString
+  department_id: 1
+
+two:
+  licence_provider: MyString
+  department_id: 1

@@ -1,0 +1,27 @@
+<h1 class="page-header">Companys</h1>
+<div class="table-responsive">
+  <table class="table table-striped" role="grid">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Company</th>
+        <th>Departments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companys.each do |company| %>
+        <tr>
+          <td><%= company.id %></td>
+          <td><%= link_to company.compname, company %></td>
+          <td><%= link_to "#{company.compname} Departments", company_departments_path(company) %></td>
+          <td>
+            <%= link_to 'edit', edit_company_path(company) %>&nbsp;
+            <%= link_to 'delete', company_path(company), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @companys %><br>
+<%= link_to "Add Company", new_company_path, class: 'btn btn-primary' %>

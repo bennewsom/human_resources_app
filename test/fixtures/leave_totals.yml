@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  annual_leave: 1.5
+  sick_leave: 1.5
+  other_leave: 1.5
+  employee_id: 1
+
+two:
+  annual_leave: 1.5
+  sick_leave: 1.5
+  other_leave: 1.5
+  employee_id: 1
