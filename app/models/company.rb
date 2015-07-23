@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
     has_many :departments
-    validates :compname, presence: true
+    has_many :users
+    validates :company_name, presence: true
 end

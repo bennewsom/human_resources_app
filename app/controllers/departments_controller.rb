@@ -5,7 +5,8 @@ class DepartmentsController < SessionsController
   
   # GET /departments
   def index
-    @departments = Department.paginate(page: params[:page])
+    @company = Company.find(params[:company_id])
+    @departments = @company.departments.paginate(page: params[:page])
   end
 
   # GET /departments/:id

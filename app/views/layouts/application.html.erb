@@ -54,18 +54,11 @@
             <li>
               <% if user_signed_in? %>
                 <button type="submit" class="btn btn-default" >
-                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+                  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
                 </button>
               <% else %>
-              <form class="navbar-form navbar-right">
-                <div class="form-group">
-                <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control">
-                </div>
                 <button type="submit" class="btn btn-default" >
-                <%# link_to 'Sign In', new_session_path(resource_name) %>
+                  <%= link_to 'Sign In', new_user_session_path %>
                 </button>
               <% end %>
             </li>
@@ -77,12 +70,15 @@
     <div class="container-fluid">
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
-        <ul class="nav nav-sidebar">
-          <li><%= link_to 'Companys', companys_path %></li>
-          <li><%= link_to 'Departments', departments_path %></li>
-        </ul>
+        <% if user_signed_in? %>
+          <ul class="nav nav-sidebar">
+            <li><%= link_to 'Companys', companys_path %></li>
+            <li><%= link_to 'Departments', departments_path %></li>
+          </ul>
+        <% else %>
+        <% end %>
       </div>
-      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="col-sm-8 col-sm-offset-1 main">
         <%= render 'shared/flash' %>
         <%= yield %>
       </div>

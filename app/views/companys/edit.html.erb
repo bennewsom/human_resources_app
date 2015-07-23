@@ -2,12 +2,12 @@
   <%= render partial: 'shared/errors', object: @company.errors %>
   <div class="col-sm-6">
     <header>
-      <h1>Edit <%= @company.compname  %> Company</h1>
+      <h1>Edit <%= @company.company_name  %> Company</h1>
     </header>
   <%= form_for @company, html: {class: 'well'} do |f| %>
     <div class="form-group">
-      <%= f.label :compname %>
-      <%= f.text_field :compname, class: 'form-control' %>
+      <%= f.label :company_name %>
+      <%= f.text_field :company_name, class: 'form-control' %>
     </div>
     <%= f.submit 'Save', class: 'btn btn-primary' %>
   <% end %>

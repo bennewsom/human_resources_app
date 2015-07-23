@@ -6,8 +6,8 @@
     </header>
   <%= form_for @company, url: {action: "create"}, html: {class: 'well'} do |f| %>
     <div class="form-group">
-      <%= f.label :compname %>
-      <%= f.text_field :compname, class: 'form-control' %>
+      <%= f.label :company_name %>
+      <%= f.text_field :company_name, class: 'form-control' %>
     </div>
     <%= f.submit 'Save', class: 'btn btn-primary' %>
   <% end %>

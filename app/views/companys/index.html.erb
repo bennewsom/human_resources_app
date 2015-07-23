@@ -12,8 +12,8 @@
       <% @companys.each do |company| %>
         <tr>
           <td><%= company.id %></td>
-          <td><%= link_to company.compname, company %></td>
-          <td><%= link_to "#{company.compname} Departments", company_departments_path(company) %></td>
+          <td><%= link_to company.company_name, company %></td>
+          <td><%= link_to "#{company.company_name} Departments", company_departments_path(company) %></td>
           <td>
             <%= link_to 'edit', edit_company_path(company) %>&nbsp;
             <%= link_to 'delete', company_path(company), method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -23,5 +23,5 @@
     </tbody>
   </table>
 </div>
-<%= will_paginate @companys %><br>
 <%= link_to "Add Company", new_company_path, class: 'btn btn-primary' %>
+

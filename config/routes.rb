@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   
-   resources :companys do
-    resources :departments, only: [:index]
+  resources :users do
+    resources :companys
+  end
+  
+  resources :companys do
+    resources :departments
   end
 
   resources :departments# do

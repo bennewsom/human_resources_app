@@ -5,7 +5,7 @@ class CompanysController < SessionsController
   
 # GET /companys
   def index
-    @companys = Company.paginate(page: params[:page])
+    @companys = [current_user.company]
   end
 
   # GET /companys/:id
@@ -63,6 +63,6 @@ class CompanysController < SessionsController
   def white_listed_parameters
     params
       .require(:company)
-      .permit(:compname)
+      .permit(:company_name)
   end
 end
