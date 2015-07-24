@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :departments
   end
 
-  resources :departments# do
+  #resources :departments# do
     #resources :employees, only: [:index]
   #end
   

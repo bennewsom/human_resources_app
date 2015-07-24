@@ -11,10 +11,10 @@
       <% @departments.each do |department| %>
         <tr>
           <td><%= department.id %></td>
-          <td><%= link_to department.department_name, department %></td>
+          <td><%= link_to department.department_name, company_department_path(@company, department) %></td>
           <td>
-            <%= link_to 'edit', edit_department_path(department) %>&nbsp;
-            <%= link_to 'delete', department_path(department), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'edit', edit_company_department_path(@company, department) %>&nbsp;
+            <%= link_to 'delete', company_department_path(@company, department), method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
       <% end %>
@@ -23,4 +23,4 @@
 </div>
 
 <%= will_paginate @departments %><br>
-<%= link_to "Add Department", new_department_path, class: 'btn btn-primary' %>
+<%= link_to "Add Department", new_company_department_path(@company), class: 'btn btn-primary' %>

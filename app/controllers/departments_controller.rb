@@ -15,15 +15,18 @@ class DepartmentsController < SessionsController
 
   # GET /departments/new
   def new
+    @company = Company.find(params[:company_id])
     @department = Department.new
   end
 
   # POST /departments
   def create
+    byebug
+    @company = Company.find(params[:company_id])
     @department = Department.new(white_listed_parameters)
     if @department.save
       flash[:notice] = 'Department Created'
-      redirect_to departments_path
+      redirect_to company_departments_path(@company)
     else
       render :new
     end
@@ -63,8 +66,9 @@ class DepartmentsController < SessionsController
   # White lists the corresponding parameters
   def white_listed_parameters
     params
-      .require(:department)
-      .permit(:department_name, :company_id)
+    .require(:department)
+    .permit(:department_name)
+    .merge(params.permit(:company_id))
   end
 
 end

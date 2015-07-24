@@ -73,7 +73,7 @@
         <% if user_signed_in? %>
           <ul class="nav nav-sidebar">
             <li><%= link_to 'Companys', companys_path %></li>
-            <li><%= link_to 'Departments', departments_path %></li>
+            <li><%= link_to 'Departments', company_departments_path(current_user.company) %></li>
           </ul>
         <% else %>
         <% end %>
