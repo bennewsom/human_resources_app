@@ -9,7 +9,7 @@
     <tbody>
       <% @departments.each do |department| %>
         <tr>
-          <td><%= link_to department.department_name, department_employees_path(department, @employees) %></td>
+          <td><%= link_to department.department_name, company_department_employees_path(@company, department, @employees) %></td>
           <td>
             <%= link_to 'Edit', edit_company_department_path(@company, department) %>&nbsp;
             <%= link_to 'Delete', company_department_path(@company, department), method: :delete, data: { confirm: 'Are you sure?' } %>

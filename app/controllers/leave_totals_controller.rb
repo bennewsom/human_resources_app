@@ -5,29 +5,34 @@ class LeaveTotalsController < SessionsController
   
   # GET /leave totals
   def index
+    @company = Company.find(params[:company_id])
+    @department = Department.find(params[:department_id])
     @employee = Employee.find(params[:employee_id])
     @leave_totals = @employee.leave_totals.paginate(page: params[:page])
   end
 
   # GET /leave totals/:id
   def show
-    @employee = Employee.find(params[:employee_id])
   end
 
   # GET /leave totals/new
   def new
+    @company = Company.find(params[:company_id])
+    @department = Department.find(params[:department_id])
     @employee = Employee.find(params[:employee_id])
     @leave_total = LeaveTotal.new
   end
 
   # POST /leave totals
   def create
+    @company = Company.find(params[:company_id])
+    @department = Department.find(params[:department_id])
     @employee = Employee.find(params[:employee_id])
     @leave_total = LeaveTotal.new(white_listed_parameters)
     @leave_total.employee = @employee
     if @leave_total.save
       flash[:notice] = 'Leave Logged'
-      redirect_to employee_leave_totals_path(@employee)
+      redirect_to company_department_employee_leave_totals_path(@company, @department, @employee)
     else
       render :new
     end
@@ -35,16 +40,14 @@ class LeaveTotalsController < SessionsController
 
   # GET /leave totals/:id/edit
   def edit
-    @employee = Employee.find(params[:employee_id])
   end
 
   # PUT /leave totals
   def update
-    @employee = Employee.find(params[:employee_id])
     @leave_total.employee = @employee
     if @leave_total.update_attributes(white_listed_parameters)
       flash[:notice] = 'Leave Logged'
-      redirect_to employee_leave_totals_path
+      redirect_to company_department_employee_leave_totals_path
     else
       render :edit
     end
@@ -53,7 +56,7 @@ class LeaveTotalsController < SessionsController
   # DELETE /leave totals/:id
   def destroy
     @leave_total.destroy
-    redirect_to employee_leave_totals_path
+    redirect_to company_department_employee_leave_totals_path
   end
 
   private
@@ -61,9 +64,12 @@ class LeaveTotalsController < SessionsController
   # Get's the leave_total from the database, and redirects if unable to find one
   def get_leave_total
     begin
+      @company = Company.find(params[:company_id])
+      @department = Department.find(params[:department_id])
+      @employee = Employee.find(params[:employee_id])
       @leave_total = LeaveTotal.find(params[:id])
     rescue
-      redirect_to employee_leave_totals_path
+      redirect_to company_department_employee_leave_totals_path
     end
   end
 

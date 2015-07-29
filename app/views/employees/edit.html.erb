@@ -4,7 +4,7 @@
       <header>
         <h1>Edit Employee Details </h1>
       </header>
-      <%= form_for @employee, url: department_employee_path(@department, @employee), method: :put, html: { class: 'well', multipart: true } do |f| %>
+      <%= form_for @employee, url: company_department_employee_path(@company, @department, @employee), method: :put, html: { class: 'well', multipart: true } do |f| %>
         <div class="form-group">
           <%= f.label :first_name %>
           <%= f.text_field :first_name, class: 'form-control' %>
@@ -158,12 +158,12 @@
           <%= f.number_field :account_number, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label "Tax Dec Form Submitted" %> <br />
-          <%= f.check_box :tax_dec_form, {}, true, false %> <br />
+          <%= f.label "Tax Dec Form Submitted" %>
+          <%= f.file_field :tax_dec_form, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label "Super Form Submitted" %> <br />
-          <%= f.check_box :super_form, {}, true, false %> <br />
+          <%= f.label "Super Form Submitted" %>
+          <%= f.file_field :super_form, class: 'form-control' %>
         </div>
         <div class="form-group">
           <%= f.label "IT Licences Processed" %> <br />

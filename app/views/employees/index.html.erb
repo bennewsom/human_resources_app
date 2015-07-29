@@ -11,16 +11,16 @@
     <tbody>
       <% @employees.each do |employee| %>
         <tr>
-          <td><%= link_to "#{employee.first_name}"" ""#{employee.last_name}", department_employee_path(@department, employee) %></td>
+          <td><%= link_to "#{employee.first_name}"" ""#{employee.last_name}", company_department_employee_path(@company, @department, employee) %></td>
           <td><%= employee.position_title %></td>
           <td><%= employee.employee_hire_date %></td>
-          <td><%= link_to 'Manage Employee Leave', employee_leave_totals_path(employee) %></td>
+          <td><%= link_to 'Manage Employee Leave', company_department_employee_leave_totals_path(@company, @department, employee) %></td>
           <td>
             <i class="fa fa-<%= employee.gender.downcase %>"></i>
           </td>
           <td>
-            <%= link_to 'Edit', edit_department_employee_path(@department, employee) %>&nbsp;
-            <%= link_to 'Delete', department_employee_path(@department, employee), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_company_department_employee_path(@company, @department, employee) %>&nbsp;
+            <%= link_to 'Delete', company_department_employee_path(@company, @department, employee), method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
       <% end %>
@@ -29,10 +29,10 @@
 </div>
 <%= will_paginate @employees %><br>
 <div>
-  <%= link_to "Add Employee", new_department_employee_path, class: 'btn btn-primary' %>
+  <%= link_to "Add Employee", new_company_department_employee_path, class: 'btn btn-primary' %>
 </div>
 <div>
-  <%= link_to "Back to Departments", department_path(@department) %>
+  <%= link_to "Back to Departments", company_departments_path(@company, @department) %>
 </div>
 
 

@@ -5,6 +5,7 @@ class EmployeesController < SessionsController
   
   # GET /employees
   def index
+    @company = Company.find(params[:company_id])
     @department = Department.find(params[:department_id])
     @employees = @department.employees.paginate(page: params[:page])
   end
@@ -16,17 +17,19 @@ class EmployeesController < SessionsController
 
   # GET /employees/new
   def new
+    @company = Company.find(params[:company_id])
     @department = Department.find(params[:department_id])
     @employee = Employee.new
   end
 
   # POST /employees
   def create
+    @company = Company.find(params[:company_id])
     @department = Department.find(params[:department_id])
     @employee = Employee.new(white_listed_parameters)
     if @employee.save
       flash[:notice] = 'Employee Created'
-      redirect_to department_employees_path(@department)
+      redirect_to company_department_employees_path(@company, @department)
     else
       render :new
     end
@@ -40,7 +43,7 @@ class EmployeesController < SessionsController
   def update
     if @employee.update_attributes(white_listed_parameters)
       flash[:notice] = 'Employee saved'
-      redirect_to department_employees_path
+      redirect_to company_department_employees_path
     else
       render :edit
     end
@@ -49,7 +52,8 @@ class EmployeesController < SessionsController
   # DELETE /employees/:id
   def destroy
     @employee.destroy
-    redirect_to department_employees_path
+    flash[:notice] = 'Employee Deleted'
+    redirect_to company_department_employees_path
   end
 
   private
@@ -57,10 +61,11 @@ class EmployeesController < SessionsController
   # Get's the company from the database, and redirects if unable to find one
   def get_employee
     begin
+      @company = Company.find(params[:company_id])
       @department = Department.find(params[:department_id])
       @employee = Employee.find(params[:id])
     rescue
-      redirect_to department_employees_path
+      redirect_to company_department_employees_path
     end
   end
 

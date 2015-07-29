@@ -1,4 +1,4 @@
-<%= form_for @employee, url: department_employees_path(@department), html: { class: 'well', multipart: true } do |f| %>
+<%= form_for @employee, url: company_department_employees_path(@company, @department), html: { class: 'well', multipart: true } do |f| %>
   <div class="form-group">
     <%= f.label :first_name %>
     <%= f.text_field :first_name, class: 'form-control' %>

@@ -4,7 +4,7 @@
     <header>
       <h1>Edit Leave Details </h1>
     </header>
-  <%= form_for @leave_total, url: employee_leave_total_path(@employee, @leave_total), html: { class: 'well', multipart: true } do |f| %>
+  <%= form_for @leave_total, url: company_department_employee_leave_total_path(@company, @department, @employee, @leave_total), html: { class: 'well', multipart: true } do |f| %>
         <div class="form-group">
           <%= f.label :reasons_for_leave, "Reason for Leave" %>
           <%= f.text_field :reasons_for_leave, class: 'form-control' %>
