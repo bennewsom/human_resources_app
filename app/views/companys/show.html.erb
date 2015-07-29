@@ -6,5 +6,8 @@
     <tr>
         <%= link_to "#{@company.company_name} Departments", company_departments_path(@company) %>
     </tr>
+    <tr>
+        <%= image_tag(@company.company_avatar.url) %>
+    </tr>
   </tbody>
 </div>

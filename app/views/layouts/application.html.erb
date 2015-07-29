@@ -72,8 +72,7 @@
       <div class="col-sm-3 col-md-2 sidebar">
         <% if user_signed_in? %>
           <ul class="nav nav-sidebar">
-            <li><%= link_to 'Companys', companys_path %></li>
-            <li><%= link_to 'Departments', company_departments_path(current_user.company) %></li>
+            <li><%= link_to 'My Company', companys_path %></li>
           </ul>
         <% else %>
         <% end %>

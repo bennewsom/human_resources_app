@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   resources :companys do
     resources :departments
   end
-
-  #resources :departments# do
-    #resources :employees, only: [:index]
-  #end
   
-  #resources :employees, only: [:index]
-  #resources :leave_totals, only: [:index]
-  #resources :it_licences, only: [:index]
+  resources :departments do
+    resources :employees
+  end
+  
+  resources :employees do
+    resources :leave_totals
+  end
   
   root 'home#index'
   

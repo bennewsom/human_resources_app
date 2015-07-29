@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723103932) do
+ActiveRecord::Schema.define(version: 20150729104100) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "company_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "company_avatar"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -29,7 +30,6 @@ ActiveRecord::Schema.define(version: 20150723103932) do
   create_table "employees", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.date     "start_date"
     t.string   "position_title"
     t.string   "gender"
     t.date     "date_of_birth"
@@ -64,11 +64,16 @@ ActiveRecord::Schema.define(version: 20150723103932) do
     t.boolean  "tax_dec_form"
     t.boolean  "super_form"
     t.boolean  "it_licences"
-    t.boolean  "employee_photo"
+    t.string   "employee_photo"
     t.boolean  "business_card"
     t.integer  "department_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "annual_leave_allowance"
+    t.integer  "sick_leave_allowance"
+    t.integer  "other_leave_allowance"
+    t.string   "country"
+    t.string   "nok_country"
   end
 
   create_table "it_licences", force: :cascade do |t|
@@ -83,8 +88,10 @@ ActiveRecord::Schema.define(version: 20150723103932) do
     t.float    "sick_leave"
     t.float    "other_leave"
     t.integer  "employee_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "reasons_for_leave"
+    t.date     "date_leave_requested"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150723103932) do
     t.string   "last_name"
     t.string   "company_name"
     t.integer  "company_id"
+    t.string   "company_avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

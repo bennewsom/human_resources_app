@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          
   belongs_to :company
   before_create :setup_company
+  validates :first_name, :last_name, :company_name, presence: true
   
   
   private

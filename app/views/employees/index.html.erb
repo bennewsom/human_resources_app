@@ -1,2 +1,38 @@
-<h1>Employees#index</h1>
-<p>Find me in app/views/employees/index.html.erb</p>
+<h1 class="page-header"><%= "#{@department.department_name}" %></h1>
+<div class="table-responsive">
+  <table class="table table-striped" role="grid">
+    <thead>
+      <tr>
+        <th>Employee Name</th>
+        <th>Position</th>
+        <th>Start Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= link_to "#{employee.first_name}"" ""#{employee.last_name}", department_employee_path(@department, employee) %></td>
+          <td><%= employee.position_title %></td>
+          <td><%= employee.employee_hire_date %></td>
+          <td><%= link_to 'Manage Employee Leave', employee_leave_totals_path(employee) %></td>
+          <td>
+            <i class="fa fa-<%= employee.gender.downcase %>"></i>
+          </td>
+          <td>
+            <%= link_to 'edit', edit_department_employee_path(@department, employee) %>&nbsp;
+            <%= link_to 'delete', department_employee_path(@department, employee), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= will_paginate @employees %><br>
+<div>
+  <%= link_to "Add Employee", new_department_employee_path, class: 'btn btn-primary' %>
+</div>
+<div>
+  <%= link_to "Back to Departments", department_path(@department) %>
+</div>
+
+

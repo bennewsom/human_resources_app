@@ -7,7 +7,7 @@ Company.create(company_name: 'Wayne Industries')
 Department.create(department_name: 'ACME Department', company: Company.first)
 Department.create(department_name: 'Wayne Department', company: Company.second)
 
-
+# Employee.create
 
 
 # Examples:

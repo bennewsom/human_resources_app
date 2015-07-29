@@ -1,0 +1,183 @@
+<div class="row">
+  <%= render partial: 'shared/errors', object: @employee.errors %>
+    <div class="col-sm-6">
+      <header>
+        <h1>Edit Employee Details </h1>
+      </header>
+      <%= form_for @employee, url: department_employee_path(@department, @employee), method: :put, html: { class: 'well', multipart: true } do |f| %>
+        <div class="form-group">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :position_title %>
+          <%= f.text_field :position_title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :gender %>
+          <%= f.select :gender, [['', ''], ['Female', 'Female'], ['Male', 'Male']], {}, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :date_of_birth %>
+          <%= f.date_field :date_of_birth, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :suburb %>
+          <%= f.text_field :suburb, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :state %>
+          <%= f.text_field :state, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :country %>
+          <%= f.text_field :country, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :postcode %>
+          <%= f.number_field :postcode, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :home_phone %>
+          <%= f.telephone_field :home_phone, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :mobile %>
+          <%= f.telephone_field :mobile, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_name, "Next of Kin Name" %>
+          <%= f.text_field :nok_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_relationship, "Next of Kin Relationship" %>
+          <%= f.text_field :nok_relationship, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_address, "Next of Kin Address" %>
+          <%= f.text_field :nok_address, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_suburb, "Next of Kin Suburb" %>
+          <%= f.text_field :nok_suburb, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_state, "Next of Kin State" %>
+          <%= f.text_field :nok_state, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_country, "Next of Kin Country" %>
+          <%= f.text_field :nok_country, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_postcode, "Next of Kin Postcode" %>
+          <%= f.number_field :nok_postcode, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_home_phone, "Next of Kin Home Phone" %>
+          <%= f.telephone_field :nok_home_phone, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_mobile, "Next of Kin Mobile Phone" %>
+          <%= f.telephone_field :nok_mobile, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nok_work_phone, "Next of Kin Work Phone" %>
+          <%= f.telephone_field :nok_work_phone, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :employee_hire_date %>
+          <%= f.date_field :employee_hire_date, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :employment_status %>
+          <%= f.select :employment_status, [['', ''], ['Full Time', 'Full Time'], ['Part Time', 'Part Time'], ['Casual', 'Casual']], {}, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :annual_pay %>
+          <%= f.number_field :annual_pay, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :monthly_pay %>
+          <%= f.number_field :monthly_pay, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :hourly_rate %>
+          <%= f.number_field :hourly_rate, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :benefits %>
+          <%= f.text_field :benefits, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :annual_leave_allowance, "Yearly Annual Leave Total (Hours)" %>
+          <%= f.number_field :annual_leave_allowance, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sick_leave_allowance, "Yearly Sick Leave Total (Hours)" %>
+          <%= f.number_field :sick_leave_allowance, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :other_leave_allowance, "Yearly Other Leave Total (Hours)" %>
+          <%= f.number_field :other_leave_allowance, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :tax_file_number %>
+          <%= f.number_field :tax_file_number, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :bank_name %>
+          <%= f.text_field :bank_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :bank_branch %>
+          <%= f.text_field :bank_branch, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :account_name %>
+          <%= f.text_field :account_name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :bsb_number %>
+          <%= f.number_field :bsb_number, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :account_number %>
+          <%= f.number_field :account_number, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Tax Dec Form Submitted" %> <br />
+          <%= f.check_box :tax_dec_form, {}, true, false %> <br />
+        </div>
+        <div class="form-group">
+          <%= f.label "Super Form Submitted" %> <br />
+          <%= f.check_box :super_form, {}, true, false %> <br />
+        </div>
+        <div class="form-group">
+          <%= f.label "IT Licences Processed" %> <br />
+          <%= f.check_box :it_licences, {}, true, false %> <br />
+        </div>
+        <div class="form-group">
+          <%= f.label :employee_photo %>
+          <%= f.file_field :employee_photo, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label "Business Cards Ordered" %> <br />
+          <%= f.check_box :business_card, {}, true, false %> <br />
+        </div>
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+</div>

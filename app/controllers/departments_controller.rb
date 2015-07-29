@@ -21,7 +21,6 @@ class DepartmentsController < SessionsController
 
   # POST /departments
   def create
-    byebug
     @company = Company.find(params[:company_id])
     @department = Department.new(white_listed_parameters)
     if @department.save
@@ -34,13 +33,15 @@ class DepartmentsController < SessionsController
 
   # GET /departments/:id/edit
   def edit
+    
   end
 
   # PUT /departments
   def update
     if @department.update_attributes(white_listed_parameters)
       flash[:notice] = 'Department saved'
-      redirect_to departments_path
+      puts "it got into saving it"
+      redirect_to company_departments_path
     else
       render :edit
     end
@@ -49,7 +50,7 @@ class DepartmentsController < SessionsController
   # DELETE /companys/:id
   def destroy
     @department.destroy
-    redirect_to departments_path
+    redirect_to company_departments_path
   end
 
   private
@@ -57,7 +58,8 @@ class DepartmentsController < SessionsController
   # Get's the company from the database, and redirects if unable to find one
   def get_department
     begin
-      @department = Department.find(params[:id])
+      @company = Company.find(params[:company_id])
+      @department = @company.departments.find(params[:id])
     rescue
       redirect_to departments_path
     end

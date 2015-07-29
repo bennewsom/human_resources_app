@@ -1,0 +1,182 @@
+<h1 class="page-header"><%= "#{@employee.first_name}"" ""#{@employee.last_name}" %></h1>
+<div class="table-responsive">
+  <table class="table table-striped" role="grid">
+    <tbody>
+        <tr>
+          <td>First Name</td>
+          <td><%= @employee.first_name %></td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td><%= @employee.last_name %></td>
+        </tr>
+        <tr>
+          <td>Position</td>
+          <td><%= @employee.position_title %></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td><%= @employee.gender %></td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td><%= @employee.date_of_birth %></td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td><%= @employee.address %></td>
+        </tr>
+        <tr>
+          <td>Suburb</td>
+          <td><%= @employee.suburb %></td>
+        </tr>
+        <tr>
+          <td>State</td>
+          <td><%= @employee.state %></td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td><%= @employee.country %></td>
+        </tr>
+        <tr>
+          <td>Postcode</td>
+          <td><%= @employee.postcode %></td>
+        </tr>
+        <tr>
+          <td>Home Phone</td>
+          <td><%= @employee.home_phone %></td>
+        </tr>
+        <tr>
+          <td>Mobile</td>
+          <td><%= @employee.mobile %></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><%= @employee.email %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin</td>
+          <td><%= @employee.nok_name %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Relationship</td>
+          <td><%= @employee.nok_relationship %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Address</td>
+          <td><%= @employee.nok_address %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Suburb</td>
+          <td><%= @employee.nok_suburb %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin State</td>
+          <td><%= @employee.nok_state %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Country</td>
+          <td><%= @employee.nok_country %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Postcode</td>
+          <td><%= @employee.nok_postcode %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Home Phone</td>
+          <td><%= @employee.nok_home_phone %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Mobile Phone</td>
+          <td><%= @employee.nok_mobile %></td>
+        </tr>
+        <tr>
+          <td>Next of Kin Work Phone</td>
+          <td><%= @employee.nok_work_phone %></td>
+        </tr>
+        <tr>
+          <td>Hire Date</td>
+          <td><%= @employee.employee_hire_date %></td>
+        </tr>
+        <tr>
+          <td>Employment Status</td>
+          <td><%= @employee.employment_status %></td>
+        </tr>
+        <tr>
+          <td>Annual Pay</td>
+          <td><%= @employee.annual_pay %></td>
+        </tr>
+        <tr>
+          <td>Monthly Pay</td>
+          <td><%= @employee.monthly_pay %></td>
+        </tr>
+        <tr>
+          <td>Hourly Rate</td>
+          <td><%= @employee.hourly_rate %></td>
+        </tr>
+        <tr>
+          <td>Benefits</td>
+          <td><%= @employee.benefits %></td>
+        </tr>
+        <tr>
+          <td>Yearly Annual Leave Total (Hours)</td>
+          <td><%= @employee.annual_leave_allowance %></td>
+        </tr>
+        <tr>
+          <td>Yearly Sick Leave Total (Hours)</td>
+          <td><%= @employee.sick_leave_allowance %></td>
+        </tr>
+        <tr>
+          <td>Yearly Other Leave Total (Hours)</td>
+          <td><%= @employee.other_leave_allowance %></td>
+        </tr>
+        <tr>
+          <td>Tax File Number</td>
+          <td><%= @employee.tax_file_number %></td>
+        </tr>
+        <tr>
+          <td>Bank Name</td>
+          <td><%= @employee.bank_name %></td>
+        </tr>
+        <tr>
+          <td>Bank Branch</td>
+          <td><%= @employee.bank_branch %></td>
+        </tr>
+        <tr>
+          <td>Account Name</td>
+          <td><%= @employee.account_name %></td>
+        </tr>
+        <tr>
+          <td>BSB Number</td>
+          <td><%= @employee.bsb_number %></td>
+        </tr>
+        <tr>
+          <td>Account Number</td>
+          <td><%= @employee.account_number %></td>
+        </tr>
+        <tr>
+          <td>Tax Dec Form Submitted?</td>
+          <td><%= @employee.tax_dec_form %></td>
+        </tr>
+        <tr>
+          <td>Super Form Submitted?</td>
+          <td><%= @employee.super_form %></td>
+        </tr>
+        <tr>
+          <td>IT Licences Processed</td>
+          <td><%= @employee.it_licences %></td>
+        </tr>
+        <tr>
+          <td>Employee Photo</td>
+          <td><%= image_tag(@employee.employee_photo.url) %></td>
+        </tr>
+        <tr>
+          <td>Business Cards Processed</td>
+          <td><%= @employee.business_card %></td>
+        </tr>
+    </tbody>
+  </table>
+</div> 
+<%= link_to 'edit', edit_department_employee_path(@department, @employee), class: 'btn btn-primary' %>
+
+

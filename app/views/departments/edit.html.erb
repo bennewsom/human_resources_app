@@ -4,6 +4,12 @@
     <header>
       <h1>Edit <%= @department.department_name %> Department </h1>
     </header>
-    <%= render partial: 'form' %>
+    <%= form_for @department, url: company_department_path(@company, @department), method: :put, html: { class: 'well' } do |f| %>
+      <div class="form-group">
+        <%= f.label :department_name %>
+        <%= f.text_field :department_name, class: 'form-control' %>
+      </div>
+      <%= f.submit 'Save', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>

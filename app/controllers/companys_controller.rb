@@ -1,7 +1,7 @@
 class CompanysController < SessionsController
   
   # Show and edit filter for companys
-  before_action :get_company, only: [:show, :edit, :update, :destroy]
+  before_action :get_company, only: [ :show, :edit, :update, :destroy]
   
 # GET /companys
   def index
@@ -63,6 +63,6 @@ class CompanysController < SessionsController
   def white_listed_parameters
     params
       .require(:company)
-      .permit(:company_name)
+      .permit(:company_name, :company_avatar)
   end
 end

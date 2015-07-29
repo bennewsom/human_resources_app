@@ -10,6 +10,11 @@ gem 'rails',        '~> 4.2'
 gem 'rest-client',  '~> 1.8'
 gem 'sass-rails',   '~> 5.0'
 gem 'turbolinks',   '~> 2.5'
+gem 'fog',          '~> 1.32'
+gem 'carrierwave',  '~> 0.10'
+gem 'birthday',     '~> 0.3.0'
+gem 'countries'
+#gem 'fog-aws',     '~> 0.7.3'
 
 # Add a dependency on the bootstrap gem, but only with CSS support
 gem 'twitter-bootstrap-rails', '~> 3.2'

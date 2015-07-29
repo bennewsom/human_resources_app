@@ -1,0 +1,31 @@
+<div class="row">
+  <%= render partial: 'shared/errors', object: @leave_total.errors %>
+  <div class="col-sm-6">
+    <header>
+      <h1>Edit Leave Details </h1>
+    </header>
+  <%= form_for @leave_total, url: employee_leave_totals_path(@employee), html: { class: 'well', multipart: true } do |f| %>
+        <div class="form-group">
+          <%= f.label :reasons_for_leave, "Reason for Leave" %>
+          <%= f.text_field :reasons_for_leave, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :date_leave_requested, "Date Leave Requested" %>
+          <%= f.date_field :date_leave_requested, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :annual_leave, "Annual Leave Hours to be Taken" %>
+          <%= f.number_field :annual_leave, :value => '0', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sick_leave, "Sick Leave Hours to be Taken" %>
+          <%= f.number_field :sick_leave, :value => '0', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :other_leave, "Other Leave Hours to be Taken" %>
+          <%= f.number_field :other_leave, :value => '0', class: 'form-control' %>
+        </div>
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+</div>
