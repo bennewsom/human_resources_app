@@ -11,6 +11,7 @@ class LeaveTotalsController < SessionsController
 
   # GET /leave totals/:id
   def show
+    @employee = Employee.find(params[:employee_id])
   end
 
   # GET /leave totals/new
@@ -24,10 +25,7 @@ class LeaveTotalsController < SessionsController
     @employee = Employee.find(params[:employee_id])
     @leave_total = LeaveTotal.new(white_listed_parameters)
     @leave_total.employee = @employee
-    if remaining_annual_leave(@employee, @leave_totals) < 0 or remaining_sick_leave(@employee, @leave_totals) < 0 or remaining_other_leave(@employee, @leave_totals) < 0
-      flash[:notice] = 'Exceeded Maximum Leave Allowance'
-      render :new
-    elsif @leave_total.save
+    if @leave_total.save
       flash[:notice] = 'Leave Logged'
       redirect_to employee_leave_totals_path(@employee)
     else
@@ -37,16 +35,14 @@ class LeaveTotalsController < SessionsController
 
   # GET /leave totals/:id/edit
   def edit
+    @employee = Employee.find(params[:employee_id])
   end
 
   # PUT /leave totals
   def update
     @employee = Employee.find(params[:employee_id])
     @leave_total.employee = @employee
-    if remaining_annual_leave(@employee, @leave_totals) < 0 or remaining_sick_leave(@employee, @leave_totals) < 0 or remaining_other_leave(@employee, @leave_totals) < 0
-      flash[:notice] = 'Exceeded Maximum Leave Allowance'
-      render :edit
-    elsif @leave_total.update_attributes(white_listed_parameters)
+    if @leave_total.update_attributes(white_listed_parameters)
       flash[:notice] = 'Leave Logged'
       redirect_to employee_leave_totals_path
     else

@@ -19,8 +19,8 @@
             <i class="fa fa-<%= employee.gender.downcase %>"></i>
           </td>
           <td>
-            <%= link_to 'edit', edit_department_employee_path(@department, employee) %>&nbsp;
-            <%= link_to 'delete', department_employee_path(@department, employee), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_department_employee_path(@department, employee) %>&nbsp;
+            <%= link_to 'Delete', department_employee_path(@department, employee), method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
       <% end %>

@@ -14,25 +14,27 @@
 ActiveRecord::Schema.define(version: 20150729104100) do
 
   create_table "companies", force: :cascade do |t|
-    t.string   "company_name"
+    t.string   "company_name",   null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "company_avatar"
   end
 
   create_table "departments", force: :cascade do |t|
-    t.string   "department_name"
+    t.string   "department_name", null: false
     t.integer  "company_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_index "departments", ["company_id"], name: "index_departments_on_company_id"
+
   create_table "employees", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "position_title"
-    t.string   "gender"
-    t.date     "date_of_birth"
+    t.string   "first_name",             null: false
+    t.string   "last_name",              null: false
+    t.string   "position_title",         null: false
+    t.string   "gender",                 null: false
+    t.date     "date_of_birth",          null: false
     t.string   "address"
     t.string   "suburb"
     t.string   "state"
@@ -50,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150729104100) do
     t.integer  "nok_home_phone"
     t.integer  "nok_mobile"
     t.integer  "nok_work_phone"
-    t.date     "employee_hire_date"
+    t.date     "employee_hire_date",     null: false
     t.string   "employment_status"
     t.float    "annual_pay"
     t.float    "monthly_pay"
@@ -76,6 +78,8 @@ ActiveRecord::Schema.define(version: 20150729104100) do
     t.string   "nok_country"
   end
 
+  add_index "employees", ["department_id"], name: "index_employees_on_department_id"
+
   create_table "it_licences", force: :cascade do |t|
     t.string   "licence_provider"
     t.integer  "department_id"
@@ -84,15 +88,17 @@ ActiveRecord::Schema.define(version: 20150729104100) do
   end
 
   create_table "leave_totals", force: :cascade do |t|
-    t.float    "annual_leave"
-    t.float    "sick_leave"
-    t.float    "other_leave"
+    t.float    "annual_leave",         null: false
+    t.float    "sick_leave",           null: false
+    t.float    "other_leave",          null: false
     t.integer  "employee_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "reasons_for_leave"
     t.date     "date_leave_requested"
   end
+
+  add_index "leave_totals", ["employee_id"], name: "index_leave_totals_on_employee_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

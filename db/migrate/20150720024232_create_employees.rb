@@ -1,12 +1,12 @@
 class CreateEmployees < ActiveRecord::Migration
   def change
     create_table :employees do |t|
-      t.string :first_name
-      t.string :last_name
+      t.string :first_name, null: false
+      t.string :last_name, null: false
       t.date :start_date
-      t.string :position_title
-      t.string :gender
-      t.date :date_of_birth
+      t.string :position_title, null: false
+      t.string :gender, null: false
+      t.date :date_of_birth, null: false
       t.string :address
       t.string :suburb
       t.string :state
@@ -24,7 +24,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.integer :nok_home_phone
       t.integer :nok_mobile
       t.integer :nok_work_phone
-      t.date :employee_hire_date
+      t.date :employee_hire_date, null: false
       t.string :employment_status
       t.float :annual_pay
       t.float :monthly_pay
@@ -44,5 +44,7 @@ class CreateEmployees < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    #add_index :employees, :company_id
+    add_index :employees, :department_id
   end
 end

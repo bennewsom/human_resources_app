@@ -38,6 +38,7 @@
           <td><%= leave_total.annual_leave %></td>
           <td><%= leave_total.sick_leave %></td>
           <td><%= leave_total.other_leave %></td>
+          <td><%= link_to 'Edit', edit_employee_leave_total_path(@employee, leave_total) %></td>
         </tr>
       <% end %>
     </tbody>

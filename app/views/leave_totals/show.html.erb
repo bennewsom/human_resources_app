@@ -1,0 +1,27 @@
+<h1 class="page-header"><%= "#{@employee.first_name}"" ""#{@employee.last_name}" "Leave Details"%></h1>
+<div class="table-responsive">
+  <table class="table table-striped" role="grid">
+    <tbody>
+        <tr>
+          <td>Reason for Leave</td>
+          <td><%= @leave_total.reasons_for_leave %></td>
+        </tr>
+        <tr>
+          <td>Date Leave Requested</td>
+          <td><%= @leave_total.date_leave_requested %></td>
+        </tr>
+        <tr>
+          <td>Annual Leave Requested (Hours)</td>
+          <td><%= @leave_total.annual_leave %></td>
+        </tr>
+        <tr>
+          <td>Sick Leave Requested (Hours)</td>
+          <td><%= @leave_total.sick_leave %></td>
+        </tr>
+        <tr>
+          <td>Other Leave Requested (Hours)</td>
+          <td><%= @leave_total.other_leave %></td>
+        </tr>
+        </tbody>
+  </table>
+</div>
