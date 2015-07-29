@@ -152,24 +152,24 @@
     <%= f.number_field :account_number, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label "Tax Dec Form Submitted" %> <br />
-    <%= f.check_box :tax_dec_form, {}, true, false %> <br />
+    <%= f.label "Tax Dec Form Submitted" %>
+    <%= f.file_field :tax_dec_form, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label "Super Form Submitted" %> <br />
-    <%= f.check_box :super_form, {}, true, false %> <br />
+    <%= f.label "Super Form Submitted" %>
+    <%= f.file_field :super_form, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label "IT Licences Processed" %> <br />
-    <%= f.check_box :it_licences, {}, true, false %> <br />
+    <%= f.label "IT Licences Processed" %>
+    <%= f.check_box :it_licences, {}, true, false %>
   </div>
   <div class="form-group">
     <%= f.label :employee_photo %>
     <%= f.file_field :employee_photo, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label "Business Cards Ordered" %> <br />
-    <%= f.check_box :business_card, {}, true, false %> <br />
+    <%= f.label "Business Cards Ordered" %>
+    <%= f.check_box :business_card, {}, true, false %>
   </div>
   <%= f.submit 'Save', class: 'btn btn-primary' %>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729104100) do
+ActiveRecord::Schema.define(version: 20150729131911) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "company_name",   null: false
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150729104100) do
     t.string   "account_name"
     t.integer  "bsb_number"
     t.integer  "account_number"
-    t.boolean  "tax_dec_form"
-    t.boolean  "super_form"
+    t.string   "tax_dec_form"
+    t.string   "super_form"
     t.boolean  "it_licences"
     t.string   "employee_photo"
     t.boolean  "business_card"
