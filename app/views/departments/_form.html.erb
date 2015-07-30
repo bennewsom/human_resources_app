@@ -4,4 +4,5 @@
     <%= f.text_field :department_name, class: 'form-control' %>
   </div>
   <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <%= link_to "Cancel", company_departments_path(@company, @department), class: 'btn btn-info' %>
 <% end %>

@@ -10,6 +10,7 @@
       <%= f.text_field :company_name, class: 'form-control' %>
     </div>
     <%= f.submit 'Save', class: 'btn btn-primary' %>
+    <%= link_to "Cancel", companys_path(@company), class: 'btn btn-info' %>
   <% end %>
   </div>
 </div>

@@ -178,6 +178,7 @@
           <%= f.check_box :business_card, {}, true, false %> <br />
         </div>
         <%= f.submit 'Save', class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', company_department_employees_path(@company, @department, @employee), class: 'btn btn-info' %>
       <% end %>
     </div>
 </div>

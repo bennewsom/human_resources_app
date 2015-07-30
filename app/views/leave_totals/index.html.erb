@@ -47,3 +47,4 @@
 
 <%= will_paginate @leave_totals %><br>
 <%= link_to 'Log Leave', new_company_department_employee_leave_total_path(@company, @department, @employee, @leave_total), class: 'btn btn-primary' %>
+<%= link_to 'Back to Employees', company_department_employees_path(@company, @department, @employee), class: 'btn btn-info' %>

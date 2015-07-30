@@ -19,6 +19,7 @@
     <tbody>
       <tr>
           <%= link_to "#{@company.company_name} Departments", company_departments_path(@company), class: 'btn btn-primary' %>
+          <%= link_to "Back to Company Home", companys_path(@company), class: 'btn btn-info' %>
       </tr>
     </tbody>
   </div>

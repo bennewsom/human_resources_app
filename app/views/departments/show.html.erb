@@ -2,4 +2,5 @@
   <h1>
     <%= @department.department_name %>
   </h1>
+  <%= link_to "Back to Departments", company_departments_path(@company, @department), class: 'btn btn-info' %>
 </div>

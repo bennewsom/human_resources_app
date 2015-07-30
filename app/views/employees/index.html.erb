@@ -28,11 +28,8 @@
   </table>
 </div>
 <%= will_paginate @employees %><br>
-<div>
-  <%= link_to "Add Employee", new_company_department_employee_path, class: 'btn btn-primary' %>
-</div>
-<div>
-  <%= link_to "Back to Departments", company_departments_path(@company, @department) %>
-</div>
+
+<%= link_to "Add Employee", new_company_department_employee_path, class: 'btn btn-primary' %>
+<%= link_to "Back to Departments", company_departments_path(@company, @department), class: 'btn btn-info' %>
 
 

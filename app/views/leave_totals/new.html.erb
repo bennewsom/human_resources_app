@@ -26,6 +26,7 @@
           <%= f.number_field :other_leave, :value => '0', class: 'form-control' %>
         </div>
         <%= f.submit 'Save', class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', company_department_employee_leave_totals_path(@company, @department, @employee), class: 'btn btn-info' %>
   <% end %>
   </div>
 </div>
