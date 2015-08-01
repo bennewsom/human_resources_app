@@ -3,9 +3,9 @@ CarrierWave.configure do |config|
 
   config.fog_credentials = {
     :provider               => 'AWS',                        # required
-    :aws_access_key_id      => 'AKIAJZ2YLUSA7K5JXN2Q',                        # required
-    :aws_secret_access_key  => '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',                        # required
-    :region => "ap-southeast-2"
+    :aws_access_key_id      => '',                        # required
+    :aws_secret_access_key  => '',                        # required
+    :region => ""
   }
  
   config.fog_directory  = 'benhrappimages'                          # required
